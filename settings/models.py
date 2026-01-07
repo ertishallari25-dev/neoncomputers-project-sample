@@ -39,12 +39,11 @@ class Order(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     
     # Payment Details
-    payment_method = models.CharField(max_length=50) # Visa or Mastercard
-    card_number = models.CharField(max_length=200) # In real apps, use secure payment gateways!
+    payment_method = models.CharField(max_length=50)
+    card_number = models.CharField(max_length=200)
     card_expiry = models.CharField(max_length=10)
     card_cvv = models.CharField(max_length=10)
-    
-    # Shipping Details
+
     full_name = models.CharField(max_length=200)
     address = models.CharField(max_length=300)
     city = models.CharField(max_length=100)

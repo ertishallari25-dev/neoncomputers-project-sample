@@ -11,22 +11,21 @@
     <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
     
     <style>
-        /* --- DARK MODE SEARCH FIX (Forces White Text) --- */
+
         body:not(.light-mode) #searchInput {
             background-color: #2c2c2c !important;
             border-color: #444 !important;
-            color: #ffffff !important; /* Forces White */
+            color: #ffffff !important;
         }
         body:not(.light-mode) #searchInput::placeholder {
-            color: #adb5bd !important; /* Forces Light Grey Placeholder */
+            color: #adb5bd !important; 
         }
         body:not(.light-mode) .search-btn {
             background-color: #2c2c2c !important;
             border-color: #444 !important;
             color: #ffffff !important;
         }
-        
-        /* Map and Info Card Styling */
+
         .map-container {
             width: 100%;
             height: 350px;
@@ -36,7 +35,7 @@
             width: 100%;
             height: 100%;
             border: 0;
-            filter: grayscale(20%) invert(90%) hue-rotate(180deg); /* Dark Mode Map Filter */
+            filter: grayscale(20%) invert(90%) hue-rotate(180deg);
         }
         body:not(.light-mode) iframe {
             filter: invert(90%) hue-rotate(180deg) grayscale(20%);
@@ -58,9 +57,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}">
-    <!-- Bolt Icon: Dark Purple -->
     <i class="fas fa-bolt fa-lg me-2" style="color: #9d00ff;"></i>
-    <!-- Text: Dark Purple, Bold -->
     <span style="color: #9d00ff; font-weight: 700;">NEON COMPUTERS</span>
 </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -81,13 +78,11 @@
                         <button id="theme-toggle" onclick="toggleTheme()"><i class="fas fa-sun"></i></button>
                     </li>
                 </ul>
-                
-                <!-- SEARCH FORM (HTML Standard - Most Reliable) -->
+
                 <form action="{% url 'home' %}" method="GET" class="d-flex ms-lg-3 mt-3 mt-lg-0">
                     <div class="input-group">
                         <button type="submit" class="btn search-btn bg-dark text-white border-secondary"><i class="fas fa-search"></i></button>
                         <input type="text" class="form-control" id="searchInput" name="q" placeholder="Search...">
-                        <!-- Hidden input to keep current category if searching -->
                         {% if request.GET.cat %}
                             <input type="hidden" name="cat" value="{{ request.GET.cat }}">
                         {% endif %}
@@ -97,12 +92,10 @@
             </div>
         </div>
     </nav>
-
     <!-- HERO SECTION -->
 <div class="hero-section">
     <div class="container">
         <h1 class="display-4 fw-bold">Neon Computers</h1>
-        <!-- CHANGED text-info TO text-primary -->
         <p class="lead" style="color: #ffffff !important;">Your go-to destination for high-performance computers.</p>
         <button class="btn btn-primary btn-lg mt-3" onclick="document.getElementById('products-area').scrollIntoView({behavior: 'smooth'})">Shop Now</button>
     </div>
@@ -110,7 +103,6 @@
 
     <!-- PRODUCTS GRID SECTION -->
     <section class="container mb-5" id="products-area">
-        <!-- Filters -->
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
             <h2 class="border-start border-4 border-primary ps-3">Products</h2>
             <div class="d-flex flex-wrap justify-content-center justify-content-md-end gap-2 mt-3 mt-md-0">
@@ -122,22 +114,18 @@
             </div>
         </div>
 
-        <!-- Grid Loop -->
         <div class="row g-4">
             {% if products %}
                 {% for product in products %}
                 <div class="col-md-4">
-                    <!-- Entire Card is Clickable -->
                     <a href="{% url 'details' product.id %}" class="text-decoration-none text-reset h-100 d-flex flex-column">
                         <div class="product-card h-100 d-flex flex-col">
 
-                            <!-- HEADER: Stacked Name and Price -->
                             <div class="p-3 text-center border-bottom border-secondary">
                                 <h5 class="mb-1 fw-bold text-reset">{{ product.name }}</h5>
                                 <span class="text-primary fs-5 fw-bold">${{ product.price }}</span>
                             </div>
 
-                            <!-- BODY: Image -->
                             <div class="card-body p-0">
                                 <img src="{{ product.image_url }}" class="w-100" style="height: 200px; object-fit: cover;" alt="{{ product.name }}">
                             </div>
@@ -154,53 +142,43 @@
         </div>
     </section>
 
-    <!-- SECTION: MAP + INFO HOLDERS -->
     <section class="container-fluid p-0 mb-5">
         
 <div class="map-container">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.81198674748!2d-79.38693363477587!3d43.64256791086047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1sx6099602820a0c7c%3A0x609951d9b4b71768!2sCN%20Tower!5e0!3m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
 </div>
 
-        <!-- 4 Info Holder Cards -->
 <div class="container mt-4">
     <div class="row g-4">
-        <!-- Card 1 -->
         <div class="col-md-6 col-lg-3">
             <div class="info-card h-100 p-4 text-center rounded">
                 <i class="fas fa-building fa-2x text-primary mb-3"></i>
                 <h5>NeonComputers</h5>
-                <!-- text-muted small REMOVED -->
                 <p class="mb-0">Leading the future of PC hardware.</p>
             </div>
         </div>
 
-        <!-- Card 2 -->
         <div class="col-md-6 col-lg-3">
             <div class="info-card h-100 p-4 text-center rounded">
                 <i class="fas fa-map-marker-alt fa-2x text-danger mb-3"></i>
                 <h5>Visit Us</h5>
-                <!-- text-muted small REMOVED -->
                 <p class="mb-0">Roundhouse Part,<br>Toronto, CA 94000</p>
             </div>
         </div>
 
-        <!-- Card 3 -->
         <div class="col-md-6 col-lg-3">
             <div class="info-card h-100 p-4 text-center rounded">
                 <i class="fas fa-phone fa-2x text-success mb-3"></i>
                 <h5>Call Us</h5>
-                <!-- text-muted small REMOVED -->
                 <p class="mb-0">+1 (555) 123-4567</p>
                 <p class="mb-0">Mon-Fri, 9am - 5pm</p>
             </div>
         </div>
 
-        <!-- Card 4 -->
         <div class="col-md-6 col-lg-3">
             <div class="info-card h-100 p-4 text-center rounded">
                 <i class="fas fa-envelope fa-2x text-warning mb-3"></i>
                 <h5>Email</h5>
-                <!-- text-muted small REMOVED -->
                 <p class="mb-0">info@neoncomputers.com</p>
             </div>
         </div>

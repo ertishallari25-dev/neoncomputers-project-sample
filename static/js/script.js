@@ -33,7 +33,6 @@ function scrollToProducts() {
 
 function filterByCategory(cat, btn) {
     console.log("Filter requested for:", cat);
-    // Frontend visual toggle only; Django does the real filtering
 }
 
 function handleSearch() { }
@@ -56,21 +55,18 @@ function handleContactSubmit(e) {
     }
 }
 
-// --- SEARCH FUNCTIONALITY (FIXED) ---
 let searchTimeout;
 
 function handleSearch() {
-    clearTimeout(searchTimeout); // Reset timer
+    clearTimeout(searchTimeout);
     
     searchTimeout = setTimeout(function() {
         const query = document.getElementById('searchInput').value;
-        
-        // ALWAYS redirect to Home page with search parameters
+
         if (query && query.trim() !== "") {
             window.location.href = "/?q=" + encodeURIComponent(query);
         } else {
-            // If empty, just go to Home
             window.location.href = "/"; 
         }
-    }, 500); // Wait 0.5 seconds before reloading
+    }, 500);
 }

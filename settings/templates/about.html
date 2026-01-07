@@ -12,7 +12,6 @@
     
     
     <style>
-        /* Style for the text block to make it readable */
         .about-content {
             background-color: var(--bg-card);
             padding: 2rem;
@@ -27,9 +26,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}">
-    <!-- Bolt Icon: Dark Purple -->
     <i class="fas fa-bolt fa-lg me-2" style="color: #9d00ff;"></i>
-    <!-- Text: Dark Purple, Bold -->
     <span style="color: #9d00ff; font-weight: 700;">NEON COMPUTERS</span>
 </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -56,41 +53,32 @@
 
     <!-- MAIN CONTENT -->
     <main class="container my-5">
-        <div class="row align-items-start"> <!-- Changed to align-items-start for better layout with lots of text -->
-            
-            <!-- LEFT: IMAGE -->
-            <!-- Inside templates/about.html -->
+        <div class="row align-items-start">
+
 <div class="col-md-6">
-    <!-- PASTE YOUR NEW LINK HERE -->
     <img src="https://www.cyberpowerpc.com/template/2022/page/WhereToBuy/images/c1.jpg?v2" class="img-fluid rounded shadow">
 </div>
 
-            <!-- RIGHT: 5 PARAGRAPHS -->
             <div class="col-lg-6">
                 <div class="about-content">
                     <h2 class="text-primary mb-4">Who We Are</h2>
-                    
-                    <!-- Paragraph 1 -->
+
                     <p class="lead mb-4">
                         Established in 2026, NeonComputers was founded on a single, unwavering principle: to bridge the gap between professional-grade power and accessible, high-performance computing. We are not just a retailer; we are curators of the digital experience, dedicated to providing enthusiasts, gamers, and creators with the tools they need to push boundaries.
                     </p>
 
-                    <!-- Paragraph 2 -->
                     <p class="mb-4">
                         Our inventory is meticulously curated from the world's leading silicon manufacturers. We specialize in custom-configured gaming rigs, ultra-portable powerhouses for professionals, and the essential components—GPUs, processors, and cooling systems—that define the next generation of computing. Every component that passes through our doors undergoes a rigorous quality assurance process.
                     </p>
 
-                    <!-- Paragraph 3 --f>
                     <p class="mb-4">
                         We believe that the aesthetic of a build is just as important as its performance. That is why we focus heavily on the "Neon" experience—RGB lighting, glass paneling, and cable management that turns your machine into a piece of art. Our team of expert technicians ensures that every system we ship is not only fast but also visually stunning and ready to shine.
                     </p>
 
-                    <!-- Paragraph 4 -->
                     <p class="mb-4">
                         Beyond the hardware, we are committed to a supportive and inclusive community. We understand that technology can be complex. Our 24/7 support team is comprised of passionate experts ready to troubleshoot issues, offer build advice, and help you optimize your system for your specific needs, whether that's rendering 3D models or dominating the leaderboards.
                     </p>
 
-                    <!-- Paragraph 5 -->
                     <p class="mb-0">
                         Looking to the future, we are constantly evolving. We are actively integrating the latest in AI-driven hardware, VR-ready setups, and sustainable computing practices. NeonComputers isn't just keeping up with the times; we are striving to define them. Join us as we light the way to a faster, brighter digital future.
                     </p>
@@ -107,43 +95,35 @@
 
     <div class="container mt-4">
     <div class="row g-4">
-        <!-- Card 1 -->
         <div class="col-md-6 col-lg-3">
             <div class="info-card h-100 p-4 text-center rounded">
                 <i class="fas fa-building fa-2x text-primary mb-3"></i>
-                <h5>NeonComputers</h5>
-                <!-- text-muted small REMOVED -->
+                <h5>NeonComputers</h5>>
                 <p class="mb-0">Leading the future of PC hardware.</p>
             </div>
         </div>
 
-        <!-- Card 2 -->
         <div class="col-md-6 col-lg-3">
             <div class="info-card h-100 p-4 text-center rounded">
                 <i class="fas fa-map-marker-alt fa-2x text-danger mb-3"></i>
                 <h5>Visit Us</h5>
-                <!-- text-muted small REMOVED -->
                 <p class="mb-0">Roundhouse Part,<br>Toronto, CA 94000</p>
             </div>
         </div>
 
-        <!-- Card 3 -->
         <div class="col-md-6 col-lg-3">
             <div class="info-card h-100 p-4 text-center rounded">
                 <i class="fas fa-phone fa-2x text-success mb-3"></i>
                 <h5>Call Us</h5>
-                <!-- text-muted small REMOVED -->
                 <p class="mb-0">+1 (555) 123-4567</p>
                 <p class="mb-0">Mon-Fri, 9am - 5pm</p>
             </div>
         </div>
 
-        <!-- Card 4 -->
         <div class="col-md-6 col-lg-3">
             <div class="info-card h-100 p-4 text-center rounded">
                 <i class="fas fa-envelope fa-2x text-warning mb-3"></i>
                 <h5>Email</h5>
-                <!-- text-muted small REMOVED -->
                 <p class="mb-0">info@neoncomputers.com</p>
             </div>
         </div>
